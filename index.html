@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="conteneur">
+        <div class="entete">
+            <div class="theme-buttons">
+                <p class="titre">Calculator</p>
+                <div class="troutheme">
+                    <button class="theme-button" id="theme1"></button>
+                    <button class="theme-button" id="theme2"></button>
+                    <button class="theme-button" id="theme3"></button>
+                </div>
+            </div>
+        </div>
+        <table class="calculator">
+            <tr>
+                <td colspan="4"> <input class="display-box" type="text" id="result" disabled /> </td>
+            </tr>
+        </table>
+        <table class="calculator2">
+            <tr>
+                <td> <input type="button" value="7" onclick="display('7')" id="bt" /> </td>
+                <td> <input type="button" value="8" onclick="display('8')" id="bt" /> </td>
+                <td> <input type="button" value="9" onclick="display('9')" id="bt" /> </td>
+                <td> <input type="button" value="DEL" onclick="clearScreen()" id="btn" /> </td>
+
+            </tr>
+
+            <tr>
+                <td> <input type="button" value="4" onclick="display('4')" id="bt" /> </td>
+                <td> <input type="button" value="5" onclick="display('5')" id="bt" /> </td>
+                <td> <input type="button" value="6" onclick="display('6')" id="bt" /> </td>
+                <td> <input type="button" value="+" onclick="display('+')" id="bt" /> </td>
+
+            </tr>
+
+            <tr>
+                <!-- display() function displays the value of clicked button -->
+                <td> <input type="button" value="1" onclick="display('1')" id="bt" /> </td>
+                <td> <input type="button" value="2" onclick="display('2')" id="bt" /> </td>
+                <td> <input type="button" value="3" onclick="display('3')" id="bt" /> </td>
+                <td> <input type="button" value="-" onclick="display('-')" id="bt" /> </td>
+
+            </tr>
+
+            <tr>
+                <td> <input type="button" value="." onclick="display('.')" id="bt" /> </td>
+                <td> <input type="button" value="0" onclick="display('0')" id="bt" /> </td>
+                <td> <input type="button" value="/" onclick="display('/')" id="bt" /> </td>
+                <td> <input type="button" value="*" onclick="display('*')" id="bt" /> </td>
+
+            </tr>
+            <tr>
+                <!-- clearScreen() function clears all the values -->
+                <td colspan="2"> <input type="button" value="RESET" onclick="clearScreen()" id="btn1" /> </td>
+                <!-- calculate() function evaluates the mathematical expression -->
+                <td colspan="2"> <input type="button" value="=" onclick="calculate()" id="btn2" /> </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
