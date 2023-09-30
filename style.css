@@ -12,14 +12,14 @@ body {
 
 font-family: Arial, sans-serif;
 }
+
 .conteneur{
     margin-top: 10rem;
     padding: 10px;
-    border-radius: 1em;
+    /* border-radius: 1em; */
     height: 35rem;
     width: 400px;
     margin: auto;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(78, 38, 38, 0.23) 0px 6px 6px;
 }
 /* .calculator{
     margin-top: 10rem;
@@ -34,10 +34,10 @@ font-family: Arial, sans-serif;
 .calculator2{
     padding: 10px;
     border-radius: 1em;
-    height: 24rem;
+    height: 23rem;
     width: 400px;
     margin: auto;
-    background-color: hsl(222, 19%, 82%);
+    background-color: hsl(223, 31%, 20%);
 }
 /* .chif{
     padding: 10px;
@@ -49,20 +49,20 @@ font-family: Arial, sans-serif;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
 } */
 .display-box {
-    font-family: 'Orbitron', sans-serif;
+    font-family: "League Spartan";
     background-color: hsl(223, 31%, 20%);
     color: #fff;
     border-radius: 10px;
+    border: 0;
     width: 386px;
     height: 5rem;
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 2rem;
 }
 
 input[type=button] {
-    font-family: 'Orbitron', sans-serif;
+    font-family: "League Spartan";
     color: rgb(20, 12, 12);
-    border: solid black 0.5px;
     width: 100%;
     border-radius: 5px;
     height: 70%;
@@ -82,12 +82,11 @@ input[type=button] {
     color: #fff;
 }
  
-input:active[type=button] {
-    /* background:  */
+/* input:active[type=button] {
     -webkit-box-shadow: inset 0px 0px 5px;
     -moz-box-shadow: inset 0px 0px 5px;
     box-shadow: inset 0px 0px 5px
-}
+} */
 #result {
     font-weight: bold;
 }
@@ -106,17 +105,19 @@ input:active[type=button] {
 }
 
 #theme1 {
-    background-color: #ed2d67;
+    background-color: hsl(25, 98%, 40%);
     color: rgb(41, 83, 162);
     height: 15px;
     width: 4px;
+    margin-left: 10px;
 }
 
 #theme2 {
-    background-color: #ed2d67;
-    color: white;
+    background-color: hsl(25, 98%, 40%);
+    color: rgb(41, 83, 162);
     height: 15px;
     width: 4px;
+    margin-left: 10px;
 }
 
 #theme3 {
@@ -124,21 +125,44 @@ input:active[type=button] {
     color: white;
     height: 15px;
     width: 4px;
+    margin-left: 10px;
 }
 .titre{
     display: inline;
-    float:inline-start
+    float:left;
+    font-size: 28px;
+    margin-top: -12px;
 }
 .theme-buttons{
  margin-bottom: 1rem;
 
 }
+.the {
+    display: flex;
+}
 .troutheme {
     background-color: hsl(223, 31%, 20%);;
     border-radius: 4rem;
-    width: 8rem;
+    width: 7rem;
     height: 15px;
-    margin-left: 16rem;
+    margin-left: 24px;
     display: flex;
     justify-content: center;
+}
+.title {
+    display: inline-block; /* Pour permettre aux boutons de s'afficher sur la même ligne */
+    font-weight: bold; /* Pour mettre en gras le texte du titre */
+    margin-left: 65px;
+    color: white;
+}
+.titre {
+    color: white;
+}
+.num{
+    display: flex;
+    margin-left: 17rem;
+}
+.num span {
+margin: 15px;
+color: white;
 }
