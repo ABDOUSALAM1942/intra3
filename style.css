@@ -63,7 +63,6 @@ font-family: Arial, sans-serif;
 input[type=button] {
     font-family: "League Spartan";
     color: rgb(20, 12, 12);
-    width: 100%;
     border-radius: 5px;
     height: 70%;
     outline: none;
@@ -72,21 +71,19 @@ input[type=button] {
 #btn {
     background-color: #078D8F;
     color: #fff;
+    width: 5rem;
 }
 #btn1 {
     background-color: #078D8F;
     color: #fff;
+    width: 11rem;
 }
 #btn2 {
     background-color: hsl(25, 98%, 40%);
     color: #fff;
+    width: 11rem;
 }
  
-/* input:active[type=button] {
-    -webkit-box-shadow: inset 0px 0px 5px;
-    -moz-box-shadow: inset 0px 0px 5px;
-    box-shadow: inset 0px 0px 5px
-} */
 #result {
     font-weight: bold;
 }
@@ -165,4 +162,7 @@ input[type=button] {
 .num span {
 margin: 15px;
 color: white;
+}
+.bt {
+    width: 5rem;
 }
