@@ -1,27 +1,92 @@
+// Fonction pour afficher les chiffres et opérateurs sur l'écran de la calculatrice
+// Fonction pour afficher les chiffres et opérateurs sur l'écran de la calculatrice
+function display(value) {
+    var currentValue = document.getElementById("result").value;
+
+    // Vérifier si la virgule existe déjà dans la valeur actuelle
+    if (value === "." && currentValue.includes(".")) {
+        return; // Ne rien faire si la virgule existe déjà
+    }
+
+    document.getElementById("result").value += value;
+}
+
+
+// Fonction pour effacer le dernier caractère de l'écran de la calculatrice
+function clearLastDigit() {
+    var currentValue = document.getElementById("result").value;
+    // Supprimer le dernier caractère de la valeur actuelle
+    var newValue = currentValue.slice(0, -1);
+    // Mettre à jour l'affichage avec la nouvelle valeur
+    document.getElementById("result").value = newValue;
+}
+
+// Fonction pour effacer complètement l'écran de la calculatrice
 function clearScreen() {
     document.getElementById("result").value = "";
+}
+
+// Fonction pour effectuer une opération d'addition
+function add(x, y) {
+    return x + y;
+}
+
+// Fonction pour effectuer une opération de soustraction
+function subtract(x, y) {
+    return x - y;
+}
+
+// Fonction pour effectuer une opération de multiplication
+function multiply(x, y) {
+    return x * y;
+}
+
+// Fonction pour effectuer une opération de division
+function divide(x, y) {
+    if (y !== 0) {
+        return x / y;
+    } else {
+        return "Erreur";
     }
+}
+
+// Fonction pour calculer le résultat en utilisant les fonctions mathématiques
+function calculate() {
+    var expression = document.getElementById("result").value;
+    var num1, num2, operator, result;
     
-    function display(value) {
-    document.getElementById("result").value += value;
-    }
+    // Utilisation d'une expression régulière pour extraire le nombre et l'opérateur
+    var regex = /(\d+\.?\d*)\s*([+\-*/])\s*(\d+\.?\d*)/;
+    var match = expression.match(regex);
     
-    
-    function calculate() {
-    var p = document.getElementById("result").value;
-    var q = eval(p);
-    document.getElementById("result").value = q;
-    }  
-    function clearLastDigit() {
-        var currentValue = document.getElementById("result").value;
+    if (match) {
+        num1 = parseFloat(match[1]);
+        operator = match[2];
+        num2 = parseFloat(match[3]);
         
-        // Supprimer le dernier caractère de la valeur actuelle
-        var newValue = currentValue.slice(0, -1);
+        switch (operator) {
+            case '+':
+                result = add(num1, num2);
+                break;
+            case '-':
+                result = subtract(num1, num2);
+                break;
+            case '*':
+                result = multiply(num1, num2);
+                break;
+            case '/':
+                result = divide(num1, num2);
+                break;
+            default:
+                result = "Erreur";
+        }
         
-        // Mettre à jour l'affichage avec la nouvelle valeur
-        document.getElementById("result").value = newValue;
+        document.getElementById("result").value = result;
+    } else {
+        document.getElementById("result").value = "Erreur";
     }
-    
+}
+
 
 // theme
     document.getElementById("theme1").addEventListener("click", function() {
