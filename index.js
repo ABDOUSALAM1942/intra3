@@ -1,5 +1,4 @@
 // Fonction pour afficher les chiffres et opérateurs sur l'écran de la calculatrice
-// Fonction pour afficher les chiffres et opérateurs sur l'écran de la calculatrice
 function display(value) {
     var currentValue = document.getElementById("result").value;
 
@@ -10,7 +9,6 @@ function display(value) {
 
     document.getElementById("result").value += value;
 }
-
 
 // Fonction pour effacer le dernier caractère de l'écran de la calculatrice
 function clearLastDigit() {
@@ -54,16 +52,20 @@ function divide(x, y) {
 function calculate() {
     var expression = document.getElementById("result").value;
     var num1, num2, operator, result;
-    
-    // Utilisation d'une expression régulière pour extraire le nombre et l'opérateur
+
     var regex = /(\d+\.?\d*)\s*([+\-*/])\s*(\d+\.?\d*)/;
     var match = expression.match(regex);
-    
+
     if (match) {
         num1 = parseFloat(match[1]);
         operator = match[2];
-        num2 = parseFloat(match[3]);
-        
+        var num2 = parseFloat(match[3]);
+
+if (!Number.isInteger(num2)) {
+    // Le nombre n'est pas un entier, donc c'est un décimal
+    num2 = parseFloat(num2);
+}
+
         switch (operator) {
             case '+':
                 result = add(num1, num2);
@@ -80,12 +82,13 @@ function calculate() {
             default:
                 result = "Erreur";
         }
-        
+
         document.getElementById("result").value = result;
     } else {
         document.getElementById("result").value = "Erreur";
     }
 }
+
 
 
 // theme
