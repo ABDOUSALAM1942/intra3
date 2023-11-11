@@ -2,13 +2,23 @@
 function display(value) {
     var currentValue = document.getElementById("result").value;
 
-    // Vérifier si la virgule existe déjà dans la valeur actuelle
-    if (value === "." && currentValue.includes(".")) {
-        return; // Ne rien faire si la virgule existe déjà
+    // Si le résultat précédent est "Infinity", effacer l'écran avant d'ajouter le nouveau chiffre ou opérateur
+    if (currentValue === "Infinity") {
+        document.getElementById("result").value = "";
     }
-
-    document.getElementById("result").value += value;
+    // Le reste de la logique reste inchangé
+    if (currentValue === "" && value === ".") {
+        document.getElementById("result").value += "0" + value;
+    } else if (value === "" && currentValue.includes(".")) {
+        return;
+    } else if (/[\+\-\*\/]/.test(value)) {
+        document.getElementById("result").value += value;
+    } else {
+        document.getElementById("result").value += value;
+    }
 }
+
+
 
 // Fonction pour effacer le dernier caractère de l'écran de la calculatrice
 function clearLastDigit() {
@@ -51,43 +61,21 @@ function divide(x, y) {
 // Fonction pour calculer le résultat en utilisant les fonctions mathématiques
 function calculate() {
     var expression = document.getElementById("result").value;
-    var num1, num2, operator, result;
+    var result;
 
-    var regex = /(\d+\.?\d*)\s*([+\-*/])\s*(\d+\.?\d*)/;
-    var match = expression.match(regex);
+    try {
+        // Utilisez la fonction math.evaluate() pour évaluer l'expression mathématique
+        result = math.evaluate(expression);
 
-    if (match) {
-        num1 = parseFloat(match[1]);
-        operator = match[2];
-        var num2 = parseFloat(match[3]);
-
-if (!Number.isInteger(num2)) {
-    // Le nombre n'est pas un entier, donc c'est un décimal
-    num2 = parseFloat(num2);
-}
-
-        switch (operator) {
-            case '+':
-                result = add(num1, num2);
-                break;
-            case '-':
-                result = subtract(num1, num2);
-                break;
-            case '*':
-                result = multiply(num1, num2);
-                break;
-            case '/':
-                result = divide(num1, num2);
-                break;
-            default:
-                result = "Erreur";
-        }
-
+        // Mettre à jour la valeur de l'élément avec l'ID "result" avec le résultat du calcul
         document.getElementById("result").value = result;
-    } else {
+    } catch (error) {
+        // En cas d'erreur lors de l'évaluation de l'expression, afficher une erreur
         document.getElementById("result").value = "Erreur";
     }
 }
+
+
 
 
 

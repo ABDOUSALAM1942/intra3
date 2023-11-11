@@ -58,6 +58,7 @@ font-family: Arial, sans-serif;
     height: 5rem;
     font-size: 32px;
     margin-bottom: 2rem;
+    text-align: end;
 }
 
 input[type=button] {
